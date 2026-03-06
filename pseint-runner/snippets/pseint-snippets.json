@@ -1,0 +1,88 @@
+{
+  "Proceso template": {
+    "prefix": "proceso",
+    "body": [
+      "Proceso ${1:NombreProceso}",
+      "\t${0}",
+      "FinProceso"
+    ],
+    "description": "Plantilla básica de un Proceso PSeInt"
+  },
+  "Algoritmo template": {
+    "prefix": "algoritmo",
+    "body": [
+      "Algoritmo ${1:NombreAlgoritmo}",
+      "\t${0}",
+      "FinAlgoritmo"
+    ],
+    "description": "Plantilla básica de un Algoritmo PSeInt"
+  },
+  "Si / Entonces / FinSi": {
+    "prefix": "si",
+    "body": [
+      "Si ${1:condicion} Entonces",
+      "\t${0}",
+      "FinSi"
+    ],
+    "description": "Estructura condicional Si...Entonces...FinSi"
+  },
+  "Si / Entonces / Sino / FinSi": {
+    "prefix": "sisino",
+    "body": [
+      "Si ${1:condicion} Entonces",
+      "\t${2}",
+      "Sino",
+      "\t${0}",
+      "FinSi"
+    ],
+    "description": "Estructura condicional Si...Entonces...Sino...FinSi"
+  },
+  "Para / FinPara": {
+    "prefix": "para",
+    "body": [
+      "Para ${1:i} <- ${2:1} Hasta ${3:10} Con Paso ${4:1} Hacer",
+      "\t${0}",
+      "FinPara"
+    ],
+    "description": "Bucle Para...FinPara"
+  },
+  "Mientras / FinMientras": {
+    "prefix": "mientras",
+    "body": [
+      "Mientras ${1:condicion} Hacer",
+      "\t${0}",
+      "FinMientras"
+    ],
+    "description": "Bucle Mientras...FinMientras"
+  },
+  "Repetir / Hasta Que": {
+    "prefix": "repetir",
+    "body": [
+      "Repetir",
+      "\t${0}",
+      "Hasta Que ${1:condicion}"
+    ],
+    "description": "Bucle Repetir...Hasta Que"
+  },
+  "Definir variable": {
+    "prefix": "definir",
+    "body": [
+      "Definir ${1:variable} Como ${2|Entero,Real,Cadena,Logico|};"
+    ],
+    "description": "Definir una variable con su tipo"
+  },
+  "Escribir": {
+    "prefix": "escribir",
+    "body": [
+      "Escribir ${0};"
+    ],
+    "description": "Mostrar texto en pantalla"
+  },
+  "Leer": {
+    "prefix": "leer",
+    "body": [
+      "Leer ${1:variable};"
+    ],
+    "description": "Leer valor del usuario"
+  }
+}
