@@ -1,0 +1,94 @@
+{
+  "name": "pseint-runner",
+  "displayName": "PSeInt Runner",
+  "description": "Execute PSeInt pseudocode (.psc files) directly inside VS Code without opening the PSeInt GUI",
+  "version": "0.1.0",
+  "publisher": "rtobart",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "PSeInt",
+    "pseudocode",
+    "psc",
+    "runner",
+    "education"
+  ],
+  "activationEvents": [
+    "onLanguage:pseint"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "pseint",
+        "aliases": [
+          "PSeInt",
+          "pseint"
+        ],
+        "extensions": [
+          ".psc"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "pseint",
+        "scopeName": "source.psc",
+        "path": "./syntaxes/pseint.tmGrammar.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "pseint",
+        "path": "./snippets/pseint-snippets.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "pseintRunner.run",
+        "title": "Run PSeInt Pseudocode",
+        "icon": "$(play)",
+        "category": "PSeInt"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "pseintRunner.run",
+          "when": "resourceExtname == .psc",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "pseintRunner.run",
+          "when": "resourceExtname == .psc"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "pseintRunner.run",
+        "key": "f5",
+        "when": "editorLangId == pseint"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  }
+}
